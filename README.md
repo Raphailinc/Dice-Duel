@@ -1,5 +1,7 @@
 # Dice Duel
 
+[![CI](https://github.com/Raphailinc/Dice-Duel/actions/workflows/ci.yml/badge.svg)](https://github.com/Raphailinc/Dice-Duel/actions/workflows/ci.yml)
+
 [English](README.md) · [Русский](README.ru.md)
 
 A console game and C++ learning project that separates game rules from command-line interaction.

@@ -39,7 +39,6 @@ inline void check(bool expr, const char* expr_str, const char* file, int line) {
 
 } // namespace doctest
 
-#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #define DOCTEST_TESTCASE(name)                                                                                          \
     static void name();                                                                                                 \
     static doctest::Register reg_##name(#name, name);                                                                   \
@@ -47,6 +46,7 @@ inline void check(bool expr, const char* expr_str, const char* file, int line) {
 
 #define CHECK(expr) doctest::check((expr), #expr, __FILE__, __LINE__)
 
+#ifdef DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 int main() {
     int failed = 0;
     for (auto& tc : doctest::registry()) {
@@ -64,5 +64,6 @@ int main() {
     std::cout << "All tests passed (" << doctest::registry().size() << ")\n";
     return 0;
 }
+#endif
 
 #endif

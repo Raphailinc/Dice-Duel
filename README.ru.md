@@ -1,5 +1,7 @@
 # Dice Duel
 
+[![CI](https://github.com/Raphailinc/Dice-Duel/actions/workflows/ci.yml/badge.svg)](https://github.com/Raphailinc/Dice-Duel/actions/workflows/ci.yml)
+
 Лёгкая консольная дуэль на кубиках: несколько раундов, бросок двух кубов каждым участником, подсчёт суммарных очков и объявление победителя. Полностью переписано на современный C++17 с модульной структурой, CLI-параметрами и автотестами.
 
 ## Возможности

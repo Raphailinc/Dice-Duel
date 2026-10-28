@@ -1,44 +1,30 @@
 # Dice Duel
 
-Лёгкая консольная дуэль на кубиках: несколько раундов, бросок двух кубов каждым участником, подсчёт суммарных очков и объявление победителя. Полностью переписано на современный C++17 с модульной структурой, CLI-параметрами и автотестами.
+[English](README.md) · [Русский](README.ru.md)
 
-## Возможности
-- Чёткая модель игры (`src/game.cpp/.hpp`): детерминированная генерация при фиксированном seed, отчёт по раундам.
-- CLI (`src/main.cpp`): параметры `--rounds N`, `--seed X`, `--auto` (без ожидания Enter), Unicode отображение граней.
-- Тесты на встроенном doctest (single-header в `tests/`).
-- CMake-проект, сборка статической библиотеки и исполняемых файлов.
+A console game and C++ learning project that separates game rules from command-line interaction.
 
-## Сборка и запуск
+## What it does
+
+- Play a configurable number of rounds against the computer.
+- Set a seed for reproducible runs.
+- Use automatic mode for a non-interactive game.
+- Test the game model through CTest.
+
+## Run locally
+
 ```bash
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build
-./build/dice_duel_cli --rounds 4 --auto
+./build/dice_duel_cli --rounds 4 --seed 42 --auto
 ```
 
-Запуск тестов:
+## Checks
+
 ```bash
-ctest --test-dir build
-# или напрямую
-./build/dice_duel_tests
+ctest --test-dir build --output-on-failure
 ```
 
-## Структура
-- `src/game.hpp/.cpp` — логика бросков и подсчёта.
-- `src/main.cpp` — пользовательский интерфейс CLI.
-- `tests/` — doctest (single-header) и тест-кейсы.
-- `CMakeLists.txt` — сборка библиотеки, CLI и тестов.
+## Scope and implementation notes
 
-## Пример
-```
-===== Dice Duel =====
-Бросьте кубы и обгоните соперника. По умолчанию 4 раунда.
-Первым ходит игрок
-
-Раунд 1:
-  Игрок: [⚁][⚅]  (+8)
-  Компьютер: [⚄][⚀]  (+6)
-Текущий счёт: Игрок 8 — Компьютер 6
-...
-Итоговый счёт: Игрок 32 — Компьютер 27
-Вы победили!
-```
+Requires a C++17 compiler and CMake. This is a local simulation/game exercise.
